@@ -14,6 +14,10 @@ def ft_progress(lst):
             100 * (time.process_time() - t)), end='\r')
         t2 = time.process_time()
         yield lst[i]
+    print('ETA: {:.02f}s [{: 3d}%] [{:20s}] {:}/{:}\
+ | elapsed time {:.02f}s'.format(
+            100 * (time.process_time() - t), 100, '='*20, ln, ln,
+            100 * (time.process_time() - t)), end='\r')
 
 
 if __name__ == '__main__':
