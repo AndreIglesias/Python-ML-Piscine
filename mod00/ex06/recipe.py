@@ -19,7 +19,10 @@ cookbook = {
 
 def recipe_names():
     global cookbook
-    [print(' - ' + name) for name in cookbook.keys()]
+    if len(cookbook) > 0:
+        [print(' - ' + name) for name in cookbook.keys()]
+    else:
+        print('The cookbook is empty')
 
 
 def recipe_details(recipe):
@@ -29,14 +32,15 @@ def recipe_details(recipe):
         print('   To be eaten for', cookbook[recipe]['meal'])
         print('   Takes', cookbook[recipe]['prep_time'], 'minutes of cooking')
     else:
-        print('N/A')
+        print('ERROR: Unknown recipe')
 
 
 def delete_recipe(recipe):
     if recipe in cookbook.keys():
         cookbook.pop(recipe)
+        print(recipe, 'deleted')
     else:
-        print('N/A')
+        print('ERROR: Unknown recipe')
 
 
 def enter_recipe():
