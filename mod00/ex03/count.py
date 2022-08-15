@@ -35,3 +35,5 @@ if __name__ == '__main__':
         print("Usage: python3 count.py <Text>")
     if len(sys.argv) == 2:
         text_analyzer(sys.argv[1])
+    elif len(sys.argv) == 1:
+        text_analyzer(input('Text to analyze:\n>> '))
