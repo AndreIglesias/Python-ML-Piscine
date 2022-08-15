@@ -3,10 +3,8 @@ import sys
 if __name__ == '__main__':
     try:
         assert len(sys.argv) <= 2, "More than one argument are provided"
-        assert len(sys.argv) != 1, "Less than one argument is provided"
     except AssertionError as msg:
         print('AssertionError:', msg)
-        print('Usage: python3 whois.py <Number>')
     if len(sys.argv) == 2:
         try:
             try:
@@ -23,3 +21,5 @@ if __name__ == '__main__':
                 print('I\'m Odd.')
         except AssertionError as msg:
             print('AssertionError:', msg)
+    else:
+        print('Usage: python3 whois.py <Number>')
