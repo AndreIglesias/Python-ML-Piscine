@@ -4,9 +4,10 @@ import string
 
 if __name__ == '__main__':
     try:
-        assert len(sys.argv) == 3, 'Usage: python3 filterwords.py <str> <nbr>'
+        assert len(sys.argv) == 3, "Two arguments must be provided"
     except AssertionError as msg:
-        print(msg)
+        print("AssertionError:", msg)
+        print('Usage: python3 filterwords.py <string> <number>')
     if len(sys.argv) == 3:
         try:
             try:
@@ -25,8 +26,7 @@ if __name__ == '__main__':
             for x in string.punctuation:
                 sys.argv[1] = sys.argv[1].replace(x, '')
             phrases = [x for x in sys.argv[1].split(' ') if x != '']
-            #phrases = list(filter(lambda x: x != '', sys.argv[1].split(' ')))
-            print(list(filter(lambda x: len(x) > int(sys.argv[2]), phrases)))
+            print([x for x in phrases if len(x) > int(sys.argv[2])])
         except AssertionError as msg:
             print("AssertionError:", msg)
             print('Usage: python3 filterwords.py <string> <number>')
