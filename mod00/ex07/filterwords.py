@@ -4,7 +4,7 @@ import string
 
 if __name__ == '__main__':
     try:
-        assert len(sys.argv) == 3, 'Usage: python3 filterwords.py <string> <number>'
+        assert len(sys.argv) == 3, 'Usage: python3 filterwords.py <str> <nbr>'
     except AssertionError as msg:
         print(msg)
     if len(sys.argv) == 3:

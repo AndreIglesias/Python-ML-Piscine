@@ -5,5 +5,5 @@ kata = {
 }
 
 if __name__ == '__main__':
-    for x,y in kata.items():
+    for x, y in kata.items():
         print(x, 'was created by', y)

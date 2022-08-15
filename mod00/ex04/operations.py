@@ -13,6 +13,7 @@ def sum_args(a, b):
         print('Quotient:   ', msg, '(division by zero)')
         print('Remainder:  ', msg, '(modulo by zero)')
 
+
 if __name__ == '__main__':
     try:
         assert len(sys.argv) == 3, "Two arguments must be provided"

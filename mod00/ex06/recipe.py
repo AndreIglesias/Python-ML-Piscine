@@ -1,24 +1,26 @@
 cookbook = {
-    'sandwich' : {
-        'ingredients' : ['ham', 'bread', 'cheese', 'tomatoes'],
-        'meal' : 'lunch',
-        'prep_time' : 10
+    'sandwich': {
+        'ingredients': ['ham', 'bread', 'cheese', 'tomatoes'],
+        'meal': 'lunch',
+        'prep_time': 10
     },
-    'cake' : {
-        'ingredients' : ['flour', 'sugar', 'eggs'],
-        'meal' : 'dessert',
-        'prep_time' : 60
+    'cake': {
+        'ingredients': ['flour', 'sugar', 'eggs'],
+        'meal': 'dessert',
+        'prep_time': 60
     },
-    'salad' : {
-        'ingredients' : ['avocado', 'arugula', 'tomatoes', 'spinach'],
-        'meal' : 'lunch',
-        'prep_time' : 15
+    'salad': {
+        'ingredients': ['avocado', 'arugula', 'tomatoes', 'spinach'],
+        'meal': 'lunch',
+        'prep_time': 15
     }
 }
+
 
 def recipe_names():
     global cookbook
     [print(' - ' + name) for name in cookbook.keys()]
+
 
 def recipe_details(recipe):
     if recipe in cookbook.keys():
@@ -29,11 +31,13 @@ def recipe_details(recipe):
     else:
         print('N/A')
 
+
 def delete_recipe(recipe):
     if recipe in cookbook.keys():
         cookbook.pop(recipe)
     else:
         print('N/A')
+
 
 def enter_recipe():
     global cookbook
@@ -49,7 +53,9 @@ def enter_recipe():
     cookbook[name]['meal'] = input(">>> Enter a meal type:\n")
     cookbook[name]['prep_time'] = input('>>> Enter a preparation time:\n')
 
+
 fn = [enter_recipe, delete_recipe, recipe_details, recipe_names, exit]
+
 
 if __name__ == '__main__':
     print('Welcome to the Python Cookbook !')
