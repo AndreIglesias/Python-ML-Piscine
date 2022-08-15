@@ -20,7 +20,7 @@ if __name__ == '__main__':
                 nb = True
             except Exception:
                 nb = False
-            assert nb, "That's not a number."
+            assert nb, "That's not a valid number."
             if x > n:
                 print("Too high!")
             elif x < n:
