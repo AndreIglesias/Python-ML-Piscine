@@ -55,11 +55,11 @@ size or range."""
             return Vector(new)
 
     def __repr__(self):
-        """Return the string to print with the recipe info"""
+        """Return the string of vector's values to print"""
         return f'{self.values}'
 
     def __str__(self):
-        """Return the string to print with the recipe info"""
+        """Return the string of vector's values to print"""
         return f'{self.values}'
 
 
