@@ -71,9 +71,10 @@ class Bank(object):
             "value": 0
             }
         attrs = fix.__dict__.keys()
+        fix_attrs = {"name" : fix.name, "id" : fix.id, "value" : fix.value}
         for x in valid_attrs.keys():
             if x in attrs:
-                valid_attrs[x] = fix[x]####
+                valid_attrs[x] = fix_attrs[x]
         if 'id' not in attrs:
             valid_attrs['id'] = Account.ID_COUNT
             Account.ID_COUNT += 1
@@ -84,15 +85,15 @@ class Bank(object):
         for attr in attrs:
             if attr.startswith('b'):
                 delattr(fix, attr)
-        if len([x for x in attrs if attr.startwith('zip')]) == 0:
+        if len([x for x in attrs if attr.startswith('zip')]) == 0:
             valid_attrs['zip'] = 42
-        if len([x for x in attrs if attr.startwith('addr')]) == 0:
+        if len([x for x in attrs if attr.startswith('addr')]) == 0:
             valid_attrs['addr'] = 42           
         fix.__dict__.update(valid_attrs)
         attrs = fix.__dict__.keys()
         if len(attrs) % 2 == 0:
             for attr in attrs:
-                if attr not in {'name', 'id', 'value'} and not attr.startwith('zip') and not attr.startwith('addr'):
+                if attr not in {'name', 'id', 'value'} and not attr.startswith('zip') and not attr.startswith('addr'):
                     delattr(fix, attr)
                     break
         return True
