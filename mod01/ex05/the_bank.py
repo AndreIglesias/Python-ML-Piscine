@@ -62,6 +62,7 @@ class Bank(object):
         if not isinstance(name, str):
             return False
         fix = [x for x in self.account if x.name == name]
+        print(fix)
         if len(fix) != 1:
             return False
         fix = fix[0]
@@ -71,6 +72,7 @@ class Bank(object):
             "value": 0
             }
         attrs = fix.__dict__.keys()
+        tattrs = fix.__dict__.copy().keys()
         fix_attrs = {"name" : fix.name, "id" : fix.id, "value" : fix.value}
         for x in valid_attrs.keys():
             if x in attrs:
@@ -82,7 +84,7 @@ class Bank(object):
             valid_attrs['id'] = int(valid_attrs['id']) if isinstance(valid_attrs['id'], float) else 0
         if not (isinstance(valid_attrs['value'], int) or isinstance(valid_attrs['value'], float)):
                 valid_attrs['value'] = 0
-        for attr in attrs:
+        for attr in tattrs:
             if attr.startswith('b'):
                 delattr(fix, attr)
         if len([x for x in attrs if attr.startswith('zip')]) == 0:
